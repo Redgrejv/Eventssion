@@ -15,30 +15,37 @@
 </head>
 <body>
     <div class="header">
+
         <div class="title_ico">
             <img src="style/image/logo.png" alt="RiverSoft" class="logo" />
             <img src="style/image/Eventssion.png" alt="EVENTSSION" class="event"/>
         </div>
 
-        <div class="control_form">
-            <form action="index.aspx" method="post">
-                <table>
+        <div class="message">
+            <img src="style/image/logo.png" alt="O" />
+            <span>Здравствуйте,</span>
+            <br />
+            <span id="user_name">Гость</span>
+        </div>
 
+        <div class="control_form">
+            <form action="index.aspx" method="get">
+                <table>
                     <tr>
                         <td>
-                            <input type="text" name="login" required/>
+                            <input type="text" name="login"  required/>
                         </td>
                         <td>
                             <input type="password" name="password" required/>
                         </td>
                         <td>
-                            <button id="singn_in"><b>ВОЙТИ</b></button>
+                            <input type="button" name="submit" id="singn_in"><b>ВОЙТИ</b></input>
                         </td>
                     </tr>
                 </table>
             </form>
             <table class="social">
-                <tr>
+                <%--<tr>
                     <td colspan="3">
                         <button id="login_facebook">
                             <img src="#" alt="F" /></button>
@@ -47,8 +54,16 @@
                         <button id="login_google">
                             <img src="#" alt="G" /></button>
                     </td>
-                </tr>
+                </tr>--%>
             </table>
+        </div>
+    </div>
+
+    <div id="main_block">
+        <div id="block_registration">
+            <div class="block_sky gradient">
+
+            </div>
         </div>
     </div>
 </body>

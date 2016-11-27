@@ -3,8 +3,8 @@
 <head lang="ru">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Главная страница</title>
-	<meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style/main.css" />
 
     <script type="text/javascript" src="lib/jquery.js"></script>
     <script type="text/javascript" src="lib/jquery-ui.js"></script>
@@ -12,6 +12,95 @@
     <script src="script/script.js" type="text/javascript"></script>
 </head>
 <body>
-    
+    <div class="header">
+
+        <div class="title_ico">
+            <img src="style/image/logo.png" alt="RiverSoft" class="logo" />
+            <img src="style/image/Eventssion.png" alt="EVENTSSION" class="event"/>
+        </div>
+
+        <div class="message">
+            <img src="style/image/logo.png" alt="O" />
+            <span>Здравствуйте,</span>
+            <br />
+            <span id="user_name">Гость</span>
+        </div>
+
+        <div class="control_form">
+            <form method="GET">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" name="login"  required/>
+                        </td>
+                        <td>
+                            <input type="password" name="password" required/>
+                        </td>
+                        <td>
+                            <button type="submit" id="sign_in"><b>ВОЙТИ</b></button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <table class="social">
+                <!--<tr>
+                    <td colspan="3">
+                        <button id="login_facebook">
+                            <img src="#" alt="F" /></button>
+                        <button id="login_vkontakte">
+                            <img src="#" alt="VK" /></button>
+                        <button id="login_google">
+                            <img src="#" alt="G" /></button>
+                    </td>
+                </tr> -->
+            </table>
+        </div>
+    </div>
+        
+    <div class="main_block">
+        <div class="gradient">
+            
+            <div class="title_inform">
+                <b>ПРИСОЕДИНЯЙСЯ К НАМ!</b>
+                <p>Eventssion - это сервис для объединения и сбора людей на события любого типа и формата</p>
+                Нужна помощь?
+            </div>            
+
+            <div class="block_registration">
+                <img id="sign_up" src="style/image/button_reg.png" alt="">
+                <img src="style/image/groups.png" alt="">
+            </div>
+
+            <div class="cases">
+
+                <div class="sport">
+                    <img src="style/image/sport.png" alt="S">
+                </div>
+
+                <div class="entertament">
+                    <img src="style/image/entertament.png" alt="L">
+                </div>
+
+                <div class="time_manager">
+                    <img src="style/image/time_manager.png" alt="T"> 
+                </div>
+
+            </div>
+
+        </div>
+
+        <img class="clouds" src="style/image/clouds.png" alt="">
+        <img class="cloud" src="style/image/cloud.png" alt="" style="">
+        
+        <div class="inform_block">
+        
+        
+        </div>
+
+
+    </div>
+
+
 </body>
+
 </html>
