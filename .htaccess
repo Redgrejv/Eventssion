@@ -1,2 +1,0 @@
-#RewriteCond %{HTTP_HOST} !^http://194.247.12.239:38001 [NC]
-#RewriteRule (.*) http://194.247.12.239:38001/$1 [R=301,L]
