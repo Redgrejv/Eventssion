@@ -1,6 +1,13 @@
 var user = {}
 
+
+
+
+
+
 $(document).ready(function() {
+
+	
 
 	$('#tel').focusin(function() {
 		
@@ -9,21 +16,21 @@ $(document).ready(function() {
 				"clearIncomplete":true,
 				completed: function(){
 					var temp = $(this).val();
-					var tel = "";
+					var phone = "";
 
 					var leng = temp.length;
 
 					for (var i = 0; i < leng; ++i) {
 						if($.isNumeric(temp[i])){
-							tel += temp[i];
+							phone += temp[i];
 						}
 					}
 
-					if (tel.length < 12) {
-						user.tel = '';
+					if (phone.length < 12) {
+						user.phone = '';
 						return false;
 					}else{
-						user.tel = tel;
+						user.phone = phone;
 					}
 				}
 			});
@@ -42,12 +49,29 @@ $(document).ready(function() {
 
 		$('#login').blur(function() {
 			var reg = /(\w{4,12})/
-			var login = $(this).val();
+			var user_name = $(this).val();
+			if (user_name) {
+				// $.ajax({
+				// 	url: 'http://194.247.12.239:38001/api/mobile/1/native_login',
+				// 	type: 'GET',
+				// 	data: {user_name: user.login}
+				// })
+				// .done(function() {
+				// 	$('label[for='+$(this).attr('id')+']').text('Пользователь с таким логином уже есть');
+				// 	return false;
+				// })
+				// .fail(function() {
+				// 	$('label[for='+$(this).attr('id')+']').text('Имя свободно');
 
-			if (reg.test(login)) {
-				user.login = login;
-			}else{
-				user.login = '';
+					if (reg.test(user_name)) {
+						user.user_name = user_name;
+					}else{
+						user.user_name = '';
+						return false;
+					}
+				// })
+				// 
+				
 			}
 		});
 
@@ -74,8 +98,8 @@ $(document).ready(function() {
 			$('#login').blur();
 			$(':input[type=password]').keyup();
 
-			var login = user.login;
-			var tel = user.tel;
+			var login = user.user_name;
+			var tel = user.phone;
 			var email = user.email;
 			var pass = user.pass;
 
@@ -84,34 +108,64 @@ $(document).ready(function() {
 			}
 		});
 
-
 		$('form').submit(function(event) {
 			event.preventDefault();
+			
+			var params = $.param(user);
+		
+		$.post('http://194.247.12.239:38001/api/mobile/1/native_register', {
+			user_name: user.user_login,
+			pass: user.pass,
+			phone: user.phone,
+			email: user.email
+		}, 
+		function(data, textStatus, xhr) {
+			alert(data+" "+ textStatus +" "+ xhr);
+		}).fail(function(data, status, xhr) {
 
-			$.ajax({
-				url: 'http://194.247.12.239:38001/api/mobile/1/native_register',
-				type: 'POST',
-				dataType: 'JSON',
-				data: {
-					user_name: user.login,
-					pass: user.pass,
-					phone: user.tel,
-					mail: user.email
-				},
-			})
-			.done(function() {
-				console.log("success");
-			})
-			.fail(function() {
-				console.log("error");
-			});
+          alert(data + " " + status + " " + xhr);
+      });
+
+			// $.ajax({
+			// 	url: 'http://194.247.12.239:38001/api/mobile/1/native_register',
+			// 	type: 'POST',
+			// 	data: params,
+			// 	success: function(data){
+   //      	alert(data);
+   //      }
+			// })
+			// .done(function() {
+			// 	console.log("success");
+			// })
+			// .fail(function() {
+			// 	console.log("error");
+			// });
+			// 
+			// 
+			// var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+			// var xhr = new XHR();
+			// xhr.open('GET', 'http://194.247.12.239:38001/api/mobile/1/native_login', true);
+
+			// xhr.onload = function() {
+			//   alert( this.responseText );
+			// }
+
+			// xhr.onerror = function() {
+			//   alert( 'Ошибка ' + this.status );
+			// }
+
+			// xhr.send();
 			
 			
 			// var request = new XMLHttpRequest();
-			// var params = 'name=' + encodeURIComponent(user.login)+
-			// '&phone='+encodeURIComponent(user.tel) +
-			// '&mail='+encodeURIComponent(user.email) +
-			// '&pass='+encodeURIComponent(user.pass);
+			// var login = encodeURIComponent(user.login);
+			// var pass = encodeURIComponent(user.pass);
+			// var mail = encodeURIComponent(user.email);
+			// var phone = encodeURIComponent(user.tel);
+			// var params = '?user_name=' + login +
+			// '&phone='+ phone +
+			// '&mail='+ mail +
+			// '&pass='+ pass;
   	// 	request.open('POST','http://194.247.12.239:38001/api/mobile/1/native_register',true);
   	// 	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   	// 	request.send(params);
@@ -125,13 +179,3 @@ $(document).ready(function() {
 		});
 
 });
-
-function label(id, complete = true){
-	var label = $('label[for='+id+']');
-
-	if (complete) {
-		label.text('Подходит').css('color', 'green');
-	}else{
-		label.text('Поле неправильно заполнено').css('color', 'red');
-	}
-}

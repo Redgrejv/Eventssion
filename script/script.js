@@ -1,9 +1,18 @@
 
+
+
 $(document).ready(function () {
 
     var url_sign_in = 'http://194.247.12.239:38001/api/mobile/1/native_login';
     var url_sign_up = 'http://194.247.12.239:38001/api/mobile/1/native_register';
     
+
+    $('#sign_up').hover(function() {
+      $(this).attr('src', 'style/image/button_reg_hover.png');
+      
+    }, function() {
+      $(this).attr('src', 'style/image/button_reg.png');
+    });
 
     $('form').submit(function(event) {
 
@@ -31,8 +40,9 @@ $(document).ready(function () {
             $('input[name=login]').val('');
             $('input[name=password]').val('');
         })
-        .fail(function() {
-            console.log("error");
+        .fail(function(data, status, xhr) {
+
+            alert(data + " " + status + " " + xhr);
         })
     });
 
