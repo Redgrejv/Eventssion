@@ -88,8 +88,8 @@ a, a:hover { text-decoration: none; }
     font: 16px 'Arial', Arial, sans-serif;
     padding-bottom: 12px; 
     border-bottom: 1px groove rgba(255, 255, 255, 0.541);
-    z-index: 75;
     margin-right: 25px;
+    color: lightgray;
     background: transparent;
 }
 
@@ -107,6 +107,7 @@ a, a:hover { text-decoration: none; }
 
 .sign-in button:hover {
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.93);
+    cursor: pointer;
 }
 
 .social, 
@@ -151,10 +152,6 @@ a, a:hover { text-decoration: none; }
     padding-top: 105px;
 }
 
-.control {
-    color: white;
-}
-
 .info {
     display: block;
     margin-top: 100px;
@@ -174,6 +171,10 @@ a, a:hover { text-decoration: none; }
     margin-bottom: 65px;
 }
 
+.control {
+    color: white;
+}
+
 .sign-up {
     width: 460px;
     height: 560px;
@@ -185,18 +186,7 @@ a, a:hover { text-decoration: none; }
     left: 812px;
     top: 350px;
     z-index: 9;
-    margin-left: 2px;
-    margin-top: 2px;
-
-}
-
-#sign-up:hover {
-    content: url(image/button_reg_hover.png);
-     margin-left: 0;
-}
-
-#sign-up:active {
-    content: url(image/button_reg_hover_active.png);
+    
 }
 
 .vid {
@@ -209,23 +199,83 @@ a, a:hover { text-decoration: none; }
     margin-left: 20px;
 }
 
-.sport:hover {
-    content: url(image/hover_sport.png);
-}
-
 .entertament {
     margin-left: 70px;
     margin-top: -20px;
-}
-
-.entertament:hover {
-    content: url(image/hover_entertament.png);
 }
 
 .time-manager {
     margin-top: -30px;
 }
 
-.time-manager:hover {
-    content: url(image/hover_time_manager.png);
+.inform {
+    background-color: #d3dee3;
 }
+
+.cloud {
+    position: absolute;
+    top: 665px;
+    height: 218px;
+    width: 1920px;
+    z-index: 24;
+    background: url(image/clouds.png) center no-repeat;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover; 
+            background-size: cover;
+    text-align: center;
+}
+
+
+.cloud img {
+    position: relative;
+    margin-top: 70px;
+}
+
+.billboard {
+    padding-top: 85px;
+    color: #6c6e6d;
+    font: 19px "Arial", sans-serif;
+}
+
+.billboard img{
+    width: 900px;
+    margin-right: 0;
+    float: left;
+}
+
+.info_town {
+    padding: 0;
+    margin: 0;
+    width: 375px;
+    float: right;
+}
+
+.info_town h1 {
+    margin-left: 75px;
+    margin-top: 20px;
+    font-size: 45px;
+    margin-bottom: 55px;
+}
+
+.info_town p{
+    text-align: right;
+    height: 133px;
+    width: 332px;
+    font-size: 19px;
+    z-index: 124;
+    float: right;
+    left: 50px;
+}
+
+.town {
+    text-align: center;
+}
+
+.town img{
+    height: 200px;
+    width: 1920px;
+    margin-top: -155px;
+    overflow: auto;
+}
+
