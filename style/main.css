@@ -270,12 +270,93 @@ a, a:hover { text-decoration: none; }
 
 .town {
     text-align: center;
+    background: #585a5f;
 }
 
 .town img{
     height: 200px;
     width: 1920px;
     margin-top: -155px;
-    overflow: auto;
+    margin-bottom: 
 }
+
+.town div.wrapper img {
+    width: 395px;
+    height: 485px;
+}
+
+.town .wrapper .board {
+    margin-top: 75px;
+}
+
+.left div, 
+.right div {
+    margin-bottom: 55px;
+    font: 18px 'Arial', sans-serif;
+    color: rgb(229, 255, 242);
+}
+
+
+
+.left div:last-child, 
+.right div:last-child {
+    margin-bottom: 0;
+}
+
+.left,
+.right {
+    width: 440px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.left p,
+.right p {
+    width: 260px;
+    height: 35px;
+    margin-top: 20px;
+    line-height: 1.2;
+}
+
+.left p {
+    text-align: left;
+    margin-left: 120px;
+}
+
+.right p {
+    text-align: right;
+    margin-left: 60px;
+}
+
+.left div,
+.right div {
+    padding: 0;
+    height: 90px;
+}
+
+.left div img,
+.right div img {
+    margin-top: 0;
+    width: 90px;
+    height: 90px;
+    max-width: 90px;
+    max-height: 90px;
+}
+
+.left div img {
+    margin-left: 5px;
+    float: left;
+}
+
+.right div img {
+    margin-right: 5px;
+    float: right;
+}
+
 
