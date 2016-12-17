@@ -1,7 +1,6 @@
+var XHR = ('onload' in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
 var sign_in = function () {
-
-  
 
   function valid_login(login) {
     var reg = /\w{4,15}/;
@@ -24,27 +23,59 @@ var sign_in = function () {
       return false;
     }
 
-    document.sign_in.submit.style.disabled = true;
+    var button = document.sign_in[2];
+    button.setAttribute('disabled', 'disabled');
 
     $.ajax({
-      url: 'http://194.247.12.239:38001/api/mobile/1/native_login',
+      async: false,
+      url: 'http://194.247.12.239:38001/api/mobile/1/native_login?callback=?',
       type: 'GET',
-      dataType: 'JSON',
+      dataType: 'jscmp',
       data: {
         user_name: login,
         user_password: pass
+      },
+      crossDomain: true,
+      success: function (data) {
+        alert('success' + data);
       }
+
+
     })
     .done(function() {
       alert("success");
     })
-    .fail(function() {
-      alert("error");
+    .fail(function(data) {
+      alert("error: " + data);
     })
     .always(function() {
-      document.sign_in.submit.style.disabled = true;
+      button.removeAttribute('disabled');
     });
     
+    
+
+    // var xhr = new XHR();
+
+    // var param = 'user_name=' + encodeURIComponent(login) + '&user_password='+ encodeURIComponent(pass);
+
+    // xhr.open('GET', 'http://194.247.12.239:38001/api/mobile/1/native_login?'+param, true);
+    // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    
+    // xhr.onredystatechange = function() {
+
+    // }
+
+    // xhr.onload = function () {
+    //   button.removeAttribute('disabled');
+    //   alert(this.responseText);
+    // }
+
+    // xhr.onerror = function () {
+    //   button.removeAttribute('disabled');
+    //   alert('Error: ' + this.status);
+    // }
+
+    // xhr.send();
 
   }
 
@@ -59,18 +90,11 @@ var sign_up = function(){
   function swap_img() {
     var img = document.getElementById('sign-up');
     
-    img.onmouseenter = function() {
-      this.setAttribute('src', 'style/image/button_reg_hover.png');
-    };
-    img.onmouseleave = function () {
-      this.setAttribute('src', 'style/image/button_reg.png');
-    };
-    img.onmousedown = function () {
-      this.setAttribute('src', 'style/image/button_reg_hover_active.png');
-    };
-    img.onmouseup = function () {
-      this.onmouseenter();
-    };
+    set_active_title(img, {standart: 'style/image/button_reg.png',
+      hover: 'style/image/button_reg_hover.png',
+      active: 'style/image/button_reg_hover_active.png'
+    });
+    
   }
 
   return {
@@ -80,9 +104,21 @@ var sign_up = function(){
 
 }();
 
+var set_active_title = function (elem, attr_val = {standart, hover, active}) {
 
-
-    // весь ваш код тут
+    elem.onmouseenter = function() {
+      this.setAttribute('src', attr_val.hover);
+    };
+    elem.onmouseleave = function () {
+      this.setAttribute('src', attr_val.standart);
+    };
+    elem.onmousedown = function () {
+      this.setAttribute('src', attr_val.active);
+    };
+    elem.onmouseup = function () {
+      this.onmouseenter();
+    };
+}
 
 
 
@@ -105,21 +141,24 @@ window.onload = function() {
   var entertament = document.getElementsByClassName('entertament')[0];
   var time_manager = document.getElementsByClassName('time-manager')[0];
 
-  hover(sport, 'style/image/hover_sport.png');
-  hover(entertament, 'style/image/hover_entertament.png');
-  hover(time_manager, 'style/image/hover_time_manager.png');
+  set_active_title(sport, {
+    standart: sport.getAttribute('src'),
+    hover: 'style/image/hover_sport.png',
+    active: 'style/image/active_hover_sport.png'
+  });
 
+  set_active_title(entertament, {
+    standart: entertament.getAttribute('src'),
+    hover: 'style/image/hover_entertament.png',
+    active: 'style/image/active_hover_entertament.png'
+  });
+
+  set_active_title(time_manager, {
+    standart: time_manager.getAttribute('src'),
+    hover: 'style/image/hover_time_manager.png',
+    active: 'style/image/active_hover_time_manager.png'
+  });
+
+  
 
 };
-
-function hover(elem, attr_val){
-  var temp_attr = elem.getAttribute('src');
-
-  elem.onmouseover = function () {
-    elem.setAttribute('src', attr_val);
-  }
-
-  elem.onmouseleave = function () {
-    elem.setAttribute('src', temp_attr);
-  }
-}

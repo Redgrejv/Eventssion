@@ -271,18 +271,18 @@ a, a:hover { text-decoration: none; }
 .town {
     text-align: center;
     background: #585a5f;
+    padding-bottom: 55px;
 }
 
-.town img{
+.town-img{
     height: 200px;
     width: 1920px;
     margin-top: -155px;
-    margin-bottom: 
 }
 
 .town div.wrapper img {
     width: 395px;
-    height: 485px;
+    height: 475px;
 }
 
 .town .wrapper .board {
@@ -359,4 +359,171 @@ a, a:hover { text-decoration: none; }
     float: right;
 }
 
+.grass {
+    width: 1920px;
+    height: 550px;
+    background: #038751;
+    background: linear-gradient(to right, #038751, #028f3b);
+}
 
+.w-grass {
+    width: 100%;
+    height: 310px;
+    position: relative;
+    top: -100px;
+    background: url(image/grass.png) no-repeat top;
+    margin-bottom: -100px;
+}
+
+.grass-woman {
+    height: 505px;
+    width: 350px;
+    background: transparent url(image/woman.png) no-repeat center;
+    float: left;
+}
+
+.grass-gp {
+    width: 855px;
+    height: 505px;
+    margin-left: 400px;
+    color: #fff;
+    background: transparent url(image/google.png) no-repeat center bottom;
+    text-align: center;
+
+}
+
+.grass-gp a{
+    position: relative;
+    top: 100px;
+    left: -20px;
+}
+
+.grass-gp h3 {
+    padding-top: 30px;
+    font: bold 44px Arial, sans-serif;
+    margin-bottom: 50px;
+}
+
+.grass-gp p {
+    font: 19px Arial, sans-serif;  
+    height: 42px;
+    z-index: 189;
+    width: 575px;
+    margin-left: 150px;
+}
+
+.ground {
+    width: 1920px;
+    height: 815px;
+    margin-top: -35px;
+    background: url(image/ground.png) no-repeat center top;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover; 
+            background-size: cover;
+    padding-top: 230px;
+}
+
+.ground-ufo {
+    height: 350px;
+    width: 1280px;
+    top: 225px; 
+    display: inline-block;
+    position: relative;
+    background: transparent url(image/ufo.png) no-repeat center;
+}
+
+.ground-social p{
+    font: 36px 'Segoe Print', sans-serif;
+    font-weight: normal;
+    color: #a88686;
+    width: 470px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.ground-social ul {
+    width: 180px;
+    height: 40px;
+    margin-left: 150px;
+
+}
+
+.ground-social ul a {
+    float: left;
+    margin-left: 25px;
+}
+
+.ground-social ul li {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #7f5757;
+    border-radius: 10px;
+    background-color: #856060;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.004);
+    width: 39px;
+    height: 38px;
+}
+
+.ground-social ul a:first-child{
+    margin-left: 0;
+}
+
+.ground-social ul li.gs-facebook{
+    background: #856060 url(image/facebook.png) no-repeat center;
+    -webkit-background-size: 50%;
+       -moz-background-size: 50%;
+         -o-background-size: 50%; 
+            background-size: 50%;
+}
+
+.ground-social ul li.gs-vk{
+    background: #856060 url(image/vk.png) no-repeat center;
+    -webkit-background-size: 75%;
+       -moz-background-size: 75%;
+         -o-background-size: 75%; 
+            background-size: 75%;
+}
+
+.ground-social ul li.gs-twitter{
+    background: #856060 url(image/twitter.png) no-repeat center;
+    -webkit-background-size: 75%;
+       -moz-background-size: 75%;
+         -o-background-size: 75%; 
+            background-size: 75%;
+}
+
+.ground-social ul:hover li {
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(34, 154, 255);
+    border-radius: 10px;
+    background-color: #2a8eff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.004);
+}
+
+.ground-social ul li:hover {
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(24, 197, 240);
+    border-radius: 10px;
+    background-color: #00bbe3;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.004);
+}
+
+.footer {
+    font: 16px Arial, sans-serif;
+    height: 55px;
+    background: #131313;
+    color: #5b5b5b;
+    padding: 15px 0 0 30px;
+}
+
+.footer a {
+    color: #5b5b5b;
+    text-decoration: underline;
+}
+
+.footer span:first-child {
+    margin-right: 400px;
+}
