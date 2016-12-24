@@ -27,7 +27,7 @@ var sign_in = function () {
     button.setAttribute('disabled', 'disabled');
 
     $.ajax({
-      async: false,
+      async: true,
       url: 'http://194.247.12.239:38001/api/mobile/1/native_login?callback=?',
       type: 'GET',
       dataType: 'jscmp',
@@ -39,8 +39,6 @@ var sign_in = function () {
       success: function (data) {
         alert('success' + data);
       }
-
-
     })
     .done(function() {
       alert("success");
@@ -51,32 +49,6 @@ var sign_in = function () {
     .always(function() {
       button.removeAttribute('disabled');
     });
-    
-    
-
-    // var xhr = new XHR();
-
-    // var param = 'user_name=' + encodeURIComponent(login) + '&user_password='+ encodeURIComponent(pass);
-
-    // xhr.open('GET', 'http://194.247.12.239:38001/api/mobile/1/native_login?'+param, true);
-    // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    
-    // xhr.onredystatechange = function() {
-
-    // }
-
-    // xhr.onload = function () {
-    //   button.removeAttribute('disabled');
-    //   alert(this.responseText);
-    // }
-
-    // xhr.onerror = function () {
-    //   button.removeAttribute('disabled');
-    //   alert('Error: ' + this.status);
-    // }
-
-    // xhr.send();
-
   }
 
   return {
@@ -129,8 +101,26 @@ document.addEventListener('DOMContentLoaded', function(){
 
   document.sign_in.onsubmit = sign_in.get;
 
-  var url_sign_in = '';
-  var url_sign_up = 'http://194.247.12.239:38001/api/mobile/1/native_register';
+  var rec_pass = document.getElementById('rec_pass');
+  rec_pass.onclick = function () {
+    var shadow = document.getElementsByClassName('shadow')[0];
+    shadow.classList.remove('devisible');
+  }
+
+  var close_modal = document.getElementsByClassName('icon-close')[0];
+  close_modal.onclick = function () {
+    var shadow = document.getElementsByClassName('shadow')[0];
+    document.recover.reset();
+    shadow.classList.add('devisible');
+  }
+
+  var form = document.recover;
+  form.onsubmit = function (event) {
+    event.preventDefault();
+    close_modal.onclick();
+    form.reset();
+    alert('Запрос отправлен.');
+  }
    
 });
 

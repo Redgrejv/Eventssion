@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<DOCTYPE html>
 <html>
 <head lang="ru">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -15,7 +15,18 @@
 
 <div class="main-wrappen">
 
-    <div class="header clearfix">
+    <div class="shadow devisible">
+        <form class="modal" name="recover">
+            <p class="left">Восстановление пароля</p>
+            <div class="icon-close right"></div>
+            <div class="cry-photo clearfix"></div>
+            <p>Не волнуйтесь. Мы отправим пароль для входа на ваш email.</p>
+            <input type="email" placeholder="Введите email" required>
+            <button type="submit" class="uppercase">Прислать пароль</button>
+        </form>
+    </div>
+
+    <div class="header">
         <div class="wrapper">
 
             <div class="logo">
@@ -47,7 +58,7 @@
                             </td>
 
                             <td>
-                                <h3 class="uppercase">Забыл пароль?</h3>
+                                <h3 class="uppercase" id="rec_pass">Забыл пароль?</h3>
                             </td>
                         </tr>
                     </table>
@@ -59,34 +70,33 @@
     <div class="register">
         <div class="wrapper">
             <div class="control clearfix">
+
                 <div class="info">
                     <h1 class="uppercase">Присоединяйся к нам!</h1>
-                    <p>Eventssion - это сервис для  объединения и сбора людей на события люпого типа и формата</p>
-                    <p>Нужна помощь?</h5>
+                    <p>Eventssion - это сервис для  объединения и сбора людей на события любого типа и формата</p>
+                    <p>Нужна помощь?</p>
                 </div>
 
-                <a href="sign_up.html"><img src="style/image/button_reg.png" id="sign-up"></a>
-                <img class="sign-up" src="style/image/groups.png" alt="">
+                <div class="sign-up">
+                    <a href="sign_up.html"><img src="style/image/button_reg.png" id="sign-up"></a>
+                </div>
 
                 <div class="vid">
                     <a href="#"><img src="style/image/sport.png" alt="" class="sport"></a>
                     <a href="#"><img src="style/image/entertament.png" alt="" class="entertament"></a>
                     <a href="#"><img src="style/image/time_manager.png" alt="" class="time-manager"></a>
                 </div>
+
             </div>
         </div>
 
-        <div class="cloud">
-            <img src="style/image/cloud.png" alt="cloud">
-        </div>
     </div>
     
 
     <div class="inform">
+        <div class="cloud"></div>
         <div class="wrapper">
             <div class="billboard clearfix">
-                <img src="style/image/billboard.png" alt="billboard" class="table">
-                
                 <div class="info_town">
                     <h1 class="uppercase">Наша цель</h1>
                     <p>Мы помогаем объединяться людям для совмесного проведения свободного времени и организовывать эффективное управление временем каждого клуба и каждого клиента этого клуба.</p>
@@ -103,7 +113,7 @@
         <img src="style/image/town.png" alt="town" class="town-img">
 
         <div class="wrapper">
-            <div class="left">
+            <div class="t-info-left left">
 
                 <div class="clearfix">
                     <img src="style/image/1.png" alt="1">
@@ -126,7 +136,7 @@
 
             <img src="style/image/board.png" alt="board" class="board">
 
-            <div class="right">
+            <div class="t-info-right right">
 
                 <div class="clearfix">
                     <img src="style/image/5.png" alt="1">
@@ -166,7 +176,7 @@
     <div class="ground">
         <div class="wrapper">
             
-            <div class="ground-social">
+            <div class="ground-social right clearfix">
                 <p>Расскажите о нас своим друзьям!</p>
 
                 <ul>
@@ -176,11 +186,48 @@
                 </ul>
             </div>
 
-            <!-- <div class="ground-ufo">
+            <div class="ground-ufo">
                 <div class="ground-mail">
-                    
+                    <form class="gm-page">
+                        <p>Дорогой Eventssion!</p>
+                        <table>
+
+                            <tr colspan="2">
+                                <td>
+                                    <label>меня зовут</label>
+                                </td>
+                                <td>
+                                    <input type="text" required disabled>
+                                </td>
+                            </tr>
+
+                            <tr colspan="2">
+                                <td>
+                                    <label>мой email</label>
+                                </td>
+                                <td>
+                                    <input type="email" required disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    <textarea rows="4" maxlength="176" disabled></textarea>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td class="button">
+                                    <button class="uppercase">Отправить</button>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                <div class="font-mail"></div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 
@@ -190,8 +237,8 @@
             <span>с уважением, команда <a href="#">Eventssion.com</a></span>
         </div>
     </div>
-
 </div>
+
 </body>
 
 </html>

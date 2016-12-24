@@ -1,10 +1,5 @@
 var user = {}
 
-
-
-
-
-
 $(document).ready(function() {
 
 	
@@ -103,8 +98,11 @@ $(document).ready(function() {
 			var email = user.email;
 			var pass = user.pass;
 
+			$('#sign_up').attr('disabled', 'disabled');
+
+
 			if (!login||!tel||!email||!pass) {
-				return false;
+				$('#sign_up').attr('disabled', false);
 			}
 		});
 
@@ -112,6 +110,7 @@ $(document).ready(function() {
 			event.preventDefault();
 			
 			var params = $.param(user);
+
 
 			$.ajax({
 				async: true,
@@ -125,11 +124,13 @@ $(document).ready(function() {
 				// jsonpCallback: function(){
 				// 	alert('String');
 				// },
-				success: function () {
-					alert('Succss');
+				success: function (status) {
+					alert('Succss: ' + status.status);
+					$('#sign_up').attr('disabled', false);
 				},
-				error: function () {
-					alert('Error');
+				error: function (status) {
+					alert('Error: '+status.status);
+					$('#sign_up').attr('disabled', false);
 				}
 
 
