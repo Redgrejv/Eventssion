@@ -1,27 +1,37 @@
-﻿<!DOCTYPE html>
+﻿<DOCTYPE html>
 <html>
 <head lang="ru">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Главная страница</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style/main.css" />
-<!-- 
+
     <script type="text/javascript" src="lib/jquery.js"></script>
-    <script type="text/javascript" src="lib/jquery-ui.js"></script> -->
+    <!-- <script type="text/javascript" src="lib/jquery-ui.js"></script> -->
 
     <script src="script/script.js" type="text/javascript"></script>
 </head>
 <body>
 
 <div class="main-wrappen">
-    
 
-    <div class="header clearfix">
+    <div class="shadow devisible">
+        <form class="modal" name="recover">
+            <p class="left">Восстановление пароля</p>
+            <div class="icon-close right"></div>
+            <div class="cry-photo clearfix"></div>
+            <p>Не волнуйтесь. Мы отправим пароль для входа на ваш email.</p>
+            <input type="email" placeholder="Введите email" required>
+            <button type="submit" class="uppercase">Прислать пароль</button>
+        </form>
+    </div>
+
+    <div class="header">
         <div class="wrapper">
 
             <div class="logo">
-                <img src="style/image/logo.png" alt="" class="logo-ico">
-                <img src="style/image/Eventssion.png" alt="" class="logo-event">
+                <a href="#"><img src="style/image/logo.png" alt="" class="logo-ico">
+                <img src="style/image/Eventssion.png" alt="" class="logo-event"></a>
             </div>
 
             <div class="control-menu">
@@ -29,8 +39,8 @@
                     <table>
                         <tr>
                             <td><input name="login" type="login" placeholder="Логин" required></td>
-                            <td><input name="pass" type="pass" placeholder="Пароль" required></td>
-                            <td><button name="submit" type="submit" class="uppercase"><b>Войти</b></button></td>
+                            <td><input name="pass" type="password" placeholder="Пароль" required></td>
+                            <td><button type="submit" class="uppercase"><b>Войти</b></button></td>
                         </tr>
                         <tr>
                             <td class="uppercase">
@@ -48,7 +58,7 @@
                             </td>
 
                             <td>
-                                <h3 class="uppercase">Забыл пароль?</h3>
+                                <h3 class="uppercase" id="rec_pass">Забыл пароль?</h3>
                             </td>
                         </tr>
                     </table>
@@ -60,34 +70,33 @@
     <div class="register">
         <div class="wrapper">
             <div class="control clearfix">
+
                 <div class="info">
                     <h1 class="uppercase">Присоединяйся к нам!</h1>
-                    <p>Eventssion - это сервис для  объединения и сбора людей на события люпого типа и формата</p>
-                    <p>Нужна помощь?</h5>
+                    <p>Eventssion - это сервис для  объединения и сбора людей на события любого типа и формата</p>
+                    <p>Нужна помощь?</p>
                 </div>
 
-                <a href="sign_up.html"><img src="style/image/button_reg.png" id="sign-up"></a>
-                <img class="sign-up" src="style/image/groups.png" alt="">
+                <div class="sign-up">
+                    <a href="sign_up.html"><img src="style/image/button_reg.png" id="sign-up"></a>
+                </div>
 
                 <div class="vid">
-                    <img src="style/image/sport.png" alt="" class="sport">
-                    <img src="style/image/entertament.png" alt="" class="entertament">
-                    <img src="style/image/time_manager.png" alt="" class="time-manager">
+                    <a href="#"><img src="style/image/sport.png" alt="" class="sport"></a>
+                    <a href="#"><img src="style/image/entertament.png" alt="" class="entertament"></a>
+                    <a href="#"><img src="style/image/time_manager.png" alt="" class="time-manager"></a>
                 </div>
+
             </div>
         </div>
 
-        <div class="cloud">
-            <img src="style/image/cloud.png" alt="cloud">
-        </div>
     </div>
     
 
     <div class="inform">
+        <div class="cloud"></div>
         <div class="wrapper">
             <div class="billboard clearfix">
-                <img src="style/image/billboard.png" alt="billboard" class="table">
-                
                 <div class="info_town">
                     <h1 class="uppercase">Наша цель</h1>
                     <p>Мы помогаем объединяться людям для совмесного проведения свободного времени и организовывать эффективное управление временем каждого клуба и каждого клиента этого клуба.</p>
@@ -97,14 +106,139 @@
                 
         </div>
         
-        <div class="town">
-            <img src="style/image/town.png" alt="town">
+        <div class="town"></div>
+    </div>
+
+    <div class="town clearfix">
+        <img src="style/image/town.png" alt="town" class="town-img">
+
+        <div class="wrapper">
+            <div class="t-info-left left">
+
+                <div class="clearfix">
+                    <img src="style/image/1.png" alt="1">
+                    <p>Расширение круга друзей и знакомых</p>
+                </div>
+                <div class="clearfix">
+                    <img src="style/image/2.png" alt="1">
+                    <p>Планирование и организация своего досуга</p>
+                </div>
+                <div class="clearfix">
+                    <img src="style/image/3.png" alt="1">
+                    <p>Выбор времени проведения события и бронирование мест</p>
+                </div>
+                <div class="clearfix">
+                    <img src="style/image/4.png" alt="1">
+                    <p>Наглядная информация о событиях в своем регионе</p>
+                </div>
+
+            </div>
+
+            <img src="style/image/board.png" alt="board" class="board">
+
+            <div class="t-info-right right">
+
+                <div class="clearfix">
+                    <img src="style/image/5.png" alt="1">
+                    <p>Расширение круга друзей и знакомых</p>
+                </div>
+                <div class="clearfix">
+                    <img src="style/image/6.png" alt="1">
+                    <p>Планирование и организация своего досуга</p>
+                </div>
+                <div class="clearfix">
+                    <img src="style/image/7.png" alt="1">
+                    <p>Выбор времени проведения события и бронирование мест</p>
+                </div>
+                <div class="clearfix">
+                    <img src="style/image/8.png" alt="1">
+                    <p>Наглядная информация о событиях в своем регионе</p>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="w-grass"></div>
+
+    <div class="grass">
+        <div class="wrapper">
+            <div class="grass-woman"></div>
+            <div class="grass-gp">
+                <h3 class="uppercase">Мобильное приложение</h3>
+                <p>С помощью мобильного приложения можно создавать события еще быстрее, реагировать на них и получать уведомления</p>
+                <a href="#"><img src="style/image/appstore_button_google.png" alt="Google Play"></a>
+            </div>
         </div>
     </div>
 
-    
+    <div class="ground">
+        <div class="wrapper">
+            
+            <div class="ground-social right clearfix">
+                <p>Расскажите о нас своим друзьям!</p>
 
+                <ul>
+                    <a href="#"><li class="gs-facebook"></li></a>
+                    <a href="#"><li class="gs-vk"></li></a>
+                    <a href="#"><li class="gs-twitter"></li></a>
+                </ul>
+            </div>
+
+            <div class="ground-ufo">
+                <div class="ground-mail">
+                    <form class="gm-page">
+                        <p>Дорогой Eventssion!</p>
+                        <table>
+
+                            <tr colspan="2">
+                                <td>
+                                    <label>меня зовут</label>
+                                </td>
+                                <td>
+                                    <input type="text" required disabled>
+                                </td>
+                            </tr>
+
+                            <tr colspan="2">
+                                <td>
+                                    <label>мой email</label>
+                                </td>
+                                <td>
+                                    <input type="email" required disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    <textarea rows="4" maxlength="176" disabled></textarea>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td class="button">
+                                    <button class="uppercase">Отправить</button>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                <div class="font-mail"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="wrapper">
+            <span>© 2015, «Eventssion». Eventssion<sup>®</sup> - зарегистрированный товарный знак.</span>
+            <span>с уважением, команда <a href="#">Eventssion.com</a></span>
+        </div>
+    </div>
 </div>
+
 </body>
 
 </html>

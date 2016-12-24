@@ -1,6 +1,7 @@
 var user = {}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 $(document).ready(function() {
 
 =======
@@ -9,6 +10,8 @@ $(document).ready(function() {
 
 
 
+=======
+>>>>>>> dffb72280e97c44249ff1b04e723e30ca767bdda
 $(document).ready(function() {
 
 	
@@ -138,8 +141,11 @@ $(document).ready(function() {
 			var email = user.email;
 			var pass = user.pass;
 
+			$('#sign_up').attr('disabled', 'disabled');
+
+
 			if (!login||!tel||!email||!pass) {
-				return false;
+				$('#sign_up').attr('disabled', false);
 			}
 		});
 
@@ -177,51 +183,44 @@ $(document).ready(function() {
 			event.preventDefault();
 			
 			var params = $.param(user);
-		
-		$.post('http://194.247.12.239:38001/api/mobile/1/native_register', {
-			user_name: user.user_login,
-			pass: user.pass,
-			phone: user.phone,
-			email: user.email
-		}, 
-		function(data, textStatus, xhr) {
-			alert(data+" "+ textStatus +" "+ xhr);
-		}).fail(function(data, status, xhr) {
 
-          alert(data + " " + status + " " + xhr);
-      });
 
-			// $.ajax({
-			// 	url: 'http://194.247.12.239:38001/api/mobile/1/native_register',
-			// 	type: 'POST',
-			// 	data: params,
-			// 	success: function(data){
-   //      	alert(data);
-   //      }
-			// })
+			$.ajax({
+				async: true,
+				url: 'http://194.247.12.239:38001/api/mobile/1/native_register?callback=?',
+				type: 'POST',
+				dataType: 'JSONP',
+				data: params,
+				crossDomain: true,
+				cache: false,
+				scriptCharset: 'UTF-8',
+				// jsonpCallback: function(){
+				// 	alert('String');
+				// },
+				success: function (status) {
+					alert('Succss: ' + status.status);
+					$('#sign_up').attr('disabled', false);
+				},
+				error: function (status) {
+					alert('Error: '+status.status);
+					$('#sign_up').attr('disabled', false);
+				}
+
+
+			});
+			
+// 			function cback(data, textStatus, xhr) {
+// 	alert(data + ' ' + textStatus + ' ' + xhr)
+// }
 			// .done(function() {
-			// 	console.log("success");
+			// 	alert('success');
 			// })
 			// .fail(function() {
-			// 	console.log("error");
-			// });
-			// 
-			// 
-			// var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-			// var xhr = new XHR();
-			// xhr.open('GET', 'http://194.247.12.239:38001/api/mobile/1/native_login', true);
-
-			// xhr.onload = function() {
-			//   alert( this.responseText );
-			// }
-
-			// xhr.onerror = function() {
-			//   alert( 'Ошибка ' + this.status );
-			// }
-
-			// xhr.send();
+			// 	alert("error");
+			// })
 			
 			
+<<<<<<< HEAD
 			// var request = new XMLHttpRequest();
 			// var login = encodeURIComponent(user.login);
 			// var pass = encodeURIComponent(user.pass);
@@ -240,11 +239,25 @@ $(document).ready(function() {
 		 //    console.log('success');
 		 //  }	
 
+=======
+// $.post('http://194.247.12.239:38001/api/mobile/1/native_register?callback=?', {
+// 	user_name: user.user_name, 
+// 	pass: user.pass,
+// 	phone: user.phone,
+// 	mail: user.email
+// }, cback);
+// 
+// 
+// 
+// 
+			
+>>>>>>> dffb72280e97c44249ff1b04e723e30ca767bdda
 			
 
 		});
 
 });
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 function label(id, complete = true){
@@ -258,3 +271,35 @@ function label(id, complete = true){
 }
 =======
 >>>>>>> signup
+=======
+
+function getJsonp(/*string*/url,/*string*/callback, /*bool*/nocache)
+{
+    var scriptTag = document.createElement("SCRIPT");
+    scriptTag.src = url + "?callback=" + callback;
+     
+    if(typeof nocache !== undefined ) {
+        scriptTag.src += "&nocache=" + (new Date()).getTime();
+    }                                                
+                                                  
+  document.body.appendChild(scriptTag);
+     
+  // Netscape, Opera
+    if(navigator.appName !== "Microsoft Internet Explorer") {  
+           
+        scriptTag.onload = function() {
+            scriptTag.parentNode.removeChild(scriptTag);
+        }
+         
+    } else {
+        // Microsoft Internet Explorer
+        scriptTag.onreadystatechange = function() {
+             
+            if(scriptTag.readyState === 'loaded'){
+                scriptTag.parentNode.removeChild(scriptTag);
+            }
+             
+        }   
+    }
+}
+>>>>>>> dffb72280e97c44249ff1b04e723e30ca767bdda
