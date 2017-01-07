@@ -2,12 +2,7 @@ var XHR = ('onload' in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
 var sign_in = function () {
 
-  function valid_login(login) {
-    var reg = /\w{4,15}/;
-    return reg.test(login);
-  }
-
-  function valid_pass(pass) {
+  function valid_input(pass) {
     var reg = /\w{4,15}/;
     return reg.test(pass);
   }
@@ -18,8 +13,8 @@ var sign_in = function () {
     var login = document.sign_in.login.value;
     var pass = document.sign_in.pass.value;
 
-    if (!valid_login(login)||
-        !valid_pass(pass)) {
+    if (!valid_input(login)||
+        !valid_input(pass)) {
       return false;
     }
 
