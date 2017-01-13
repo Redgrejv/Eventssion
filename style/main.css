@@ -67,20 +67,15 @@ a, a:hover { text-decoration: none; }
 
 .control-menu {
     width: 635px;
-    margin-right: 0;
     height: 100px;
     float: right;
-
+    padding-left: 45px;
 }
 
 .sign-in {
-    margin-left: 100px;
-    width: 535px;
+    width: auto;
     padding-top: 10px;
-}
-
-.sign-in form {
-    width: 100%;
+    margin-bottom: 12px;
 }
 
 .sign-in input {
@@ -102,7 +97,7 @@ a, a:hover { text-decoration: none; }
     z-index: 84;
     font: 14px Arial, sans-serif;
     border-radius: 5px;
-    
+    font-weight: bold;
 }
 
 .sign-in button:hover {
@@ -110,22 +105,29 @@ a, a:hover { text-decoration: none; }
     cursor: pointer;
 }
 
-.social, 
-.sign-in h3 {
-    margin-top: 25px; 
+.social{
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+
+.control-menu h3 {
+    float: right;
     color: white;
 }
 
-.sign-in h3 {
-    float: right;
-}
-
-.sign-in h3:hover {
+.control-menu h3:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
 .language {
+    width: 90px;
+    height: auto;
+}
+
+.language li{
     font-size: 14px 'Arial', arial, sans-serif;
     float: left;
     color: white;
@@ -136,7 +138,11 @@ a, a:hover { text-decoration: none; }
     cursor: pointer;
 }
 
-.language:hover{
+.language li:hover{
+    background-color: rgb(11, 122, 77);
+}
+
+.language li:active{
     background-color: rgb(11, 122, 77);
 }
 

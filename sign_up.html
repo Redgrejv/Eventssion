@@ -12,6 +12,7 @@
 	<!-- <script src="lib/cross_domen_ajax.js"></script> -->
 
 	<link rel="stylesheet" href="style/sign_up.css">
+	<link rel="stylesheet" href="style/alert.css">
 	<script src="script/sign_up.js"></script>
 
 	<!-- <script src="lib/inputmask.min.js"></script>
@@ -31,19 +32,21 @@
 		<div class="reg_block">
 			<div class="avatar"></div>
 
-			<form action="" method="POST">
+			<form method="POST">
 
+				<input id="login" type="text" name="user_name" placeholder="Имя" required>
 				<label for="login"></label>
-				<input id="login" type="text" name="login" placeholder="Имя" required>
 
-				<input id="email" type="email" name="email" placeholder="Email" required>
+				<input id="email" type="email" name="mail" placeholder="Email" required>
+				<label for="email"></label>
 
-				<input id="tel" type="tel" name="tel" placeholder="Мобильный телефон" required>
+				<input id="tel" type="tel" name="phone" placeholder="Мобильный телефон" required>
+				<label for="tel"></label>
 
-				<input id="password" type="password" name="password" placeholder="Пароль" required>
-
+				<input id="password" type="password" name="pass" placeholder="Пароль" required>
 				<label for="password"></label>
-				<input id="confirm_password" min="6" max="15" type="password" name="confirm_password" placeholder="Подтвердить пароль" required>
+
+				<input id="confirm_password" min="6" max="15" type="password" name="confirm_password" placeholder="Подтвердите пароль" required>
 				<label for="confirm_password"></label>
 
 				<button id="sign_up" type="submit" class="uppercase">Регистрация</button>
@@ -51,5 +54,10 @@
 		</div>
 
 	</div>
+
+	<!-- <div class="alert">
+		<p class="a-message" id="a_message">Alert!</p>
+	</div>
+ -->
 </body>
 </html>

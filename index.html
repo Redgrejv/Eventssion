@@ -34,35 +34,33 @@
                 <img src="style/image/Eventssion.png" alt="" class="logo-event"></a>
             </div>
 
-            <div class="control-menu">
-                <form method="GET" class="sign-in" name="sign_in">
-                    <table>
-                        <tr>
-                            <td><input name="login" type="login" placeholder="Логин" required></td>
-                            <td><input name="pass" type="password" placeholder="Пароль" required></td>
-                            <td><button type="submit" class="uppercase"><b>Войти</b></button></td>
-                        </tr>
-                        <tr>
-                            <td class="uppercase">
-                                <a href="#" class="language en">en</a>
-                                <a href="#" class="language ru">ru</a>
-                                <a href="#" class="language ua">ua</a>
-                            </td>
-
-                            <td>
-                                <!-- <div class="social">
-                                    <div class="facebook"></div>
-                                    <div class="google"></div>
-                                    <div class="vk"></div>
-                                </div> -->
-                            </td>
-
-                            <td>
-                                <h3 class="uppercase" id="rec_pass">Забыл пароль?</h3>
-                            </td>
-                        </tr>
-                    </table>
+            <div class="control-menu clearfix">
+                <form method="GET" class="sign-in clearfix" name="sign_in">
+                    
+                    <input type="login" name="login" placeholder="Логин" required="">
+                    <input type="password" name="pass" placeholder="Пароль" required="">
+                    <button type="submit" class="uppercase">Войти</button>
                 </form>
+
+                    <div class="uppercase">
+                        <ul class="language">
+                            <li class="en">en</li>
+                            <li class="ru">ru</li>
+                            <li class="ua">ua</li>
+                        </ul>
+                    </div>
+
+                    <div class="social">
+                        <ul class="clearfix">
+                            <li class="facebook"></li>
+                            <li class="google"></li>
+                            <li class="vk"></li>
+                        </ul>
+                    </div>
+
+
+                    <h3 class="uppercase" id="rec_pass">Забыл пароль?</h3>
+
             </div>
         </div>
     </div>

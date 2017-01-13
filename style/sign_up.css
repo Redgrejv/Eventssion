@@ -100,5 +100,13 @@ body {
 	cursor: pointer;
 }
 
+.main_block button:hover {
+	background-color: #0189e3;
+} 
+
+.main_block button:disabled {
+	background-color: #0189a3;
+} 
+
 .reg_block form input:focus { outline: none; }
 

@@ -2,14 +2,9 @@ var XHR = ('onload' in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
 var sign_in = function () {
 
-  function valid_login(login) {
+  function valid_data(data) {
     var reg = /\w{4,15}/;
     return reg.test(login);
-  }
-
-  function valid_pass(pass) {
-    var reg = /\w{4,15}/;
-    return reg.test(pass);
   }
   
   function get (event) {
@@ -18,8 +13,9 @@ var sign_in = function () {
     var login = document.sign_in.login.value;
     var pass = document.sign_in.pass.value;
 
-    if (!valid_login(login)||
-        !valid_pass(pass)) {
+    if (!valid_data(login)||
+        !valid_data(pass)) {
+      
       return false;
     }
 
@@ -28,9 +24,9 @@ var sign_in = function () {
 
     $.ajax({
       async: true,
-      url: 'http://194.247.12.239:38001/api/mobile/1/native_login?callback=?',
+      url: 'https://eventssion.com/api/mobile/1/native_login?callback=?',
       type: 'GET',
-      dataType: 'jscmp',
+      dataType: 'jsonp',
       data: {
         user_name: login,
         user_password: pass
@@ -91,8 +87,6 @@ var set_active_title = function (elem, attr_val = {standart, hover, active}) {
       this.onmouseenter();
     };
 }
-
-
 
 document.addEventListener('DOMContentLoaded', function(){
 
