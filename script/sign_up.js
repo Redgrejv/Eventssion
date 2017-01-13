@@ -162,21 +162,59 @@
 $(document).ready(function() {
 
 	var button_su = $('#sign_up');
-	
-	$('#login').keyup(function() {
-		var login = $(this).val();
 
-		if (valid(login, 'text')) {
-			message('login', '');
+	var kup = function (id, type, mess) {
+		var elem = $('#' + id).val();
+
+		if (valid(elem, type)) {
+			message(id, '');
 			button_su.prop('disabled', false);
 		}else{
-			message('login', 'Имя должно быть от 4 до 12 символов.')
+			message(id, mess);
 			button_su.prop('disabled', true);
 		}
-
+	}
+	
+	$('#login').on('input', function() {
+		kup(this.id, 'text', 'Имя должно быть от 4 до 12 символов.');
 	});
 
+	$('#email').on('input', function() {
+		kup(this.id, 'email', 'Введенный email должен иметь формат ____@__.__');
+	});
 
+	$('#tel').focusin(function() {
+		$(this).mask("+38 (999) 999-99-99",
+			{
+				"clearIncomplete":true,
+				completed: function(){
+					// var temp = $(this).val();
+					// var tel = "";
+					// var leng = temp.length;
+
+					// for (var i = 0; i < leng; ++i) {
+					// 	if($.isNumeric(temp[i])){
+					// 		tel += temp[i];
+					// 	}
+					// }
+
+					// if(tel.length == 12) {
+					// 	user.phone = tel;
+					// }else{
+					// 	user.phone = '';
+					// 	return false;
+					// }
+				}
+			});
+	});
+
+	$('#password').on('input', function() {
+		kup(this.id, 'text', 'Пароль должен быть от 4 до 12 символов.');
+	});
+
+	$('#confirm_password').on('input', function() {
+		kup(this.id, 'c_pass', 'Пароли не совпадают.');		
+	});
 
 
 });
@@ -192,8 +230,17 @@ var valid = function (data, type) {
 			break;
 
 		case 'email':
-			var reg = /(\w{4,12})/;
+			var reg = /@\w{1,10}\.{1,10}/;
 			return reg.test(data);
+			break;
+
+		case 'c_pass':
+			var pass = $('#password').val();
+
+			if (pass == data) {
+				return true;
+			}else return false;
+			
 			break;
 	}
 
