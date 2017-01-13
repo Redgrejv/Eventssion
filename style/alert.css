@@ -1,0 +1,34 @@
+
+
+.alert	{
+	top: 0;
+	left: 40px;
+	position: absolute;
+	border: 4px solid #E60C0C;
+	background-color: lightgray;
+	width: 300px;
+	max-height: 100px;
+	text-align: center;
+	color: ;
+	font: 18px Arial, Helvetica, sans-serif;
+	padding: 5px 15px;
+	border-radius: 10px;
+}
+
+.alert::after {
+	content: '';
+	position: absolute;
+	left: -40px;
+	top: 10px;
+	border: 20px solid transparent;
+	border-right: 20px solid #E60C0C;
+}
+
+.a-message {
+	color: #E60C0C;
+	font-weight: bold;
+}
+
+.disable {
+	color: rgb(10,10,10);
+}
