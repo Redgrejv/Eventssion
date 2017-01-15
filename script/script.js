@@ -4,7 +4,7 @@ var sign_in = function () {
 
   function valid_data(data) {
     var reg = /\w{4,15}/;
-    return reg.test(login);
+    return reg.test(data);
   }
   
   function get (event) {
@@ -20,7 +20,8 @@ var sign_in = function () {
     }
 
     var button = document.sign_in[2];
-    button.setAttribute('disabled', 'disabled');
+
+    
 
     $.ajax({
       async: true,
@@ -32,19 +33,40 @@ var sign_in = function () {
         user_password: pass
       },
       crossDomain: true,
-      success: function (data) {
-        alert('success' + data);
+      beforeSend: function (jqXHR, option) {
+                    button.setAttribute('disabled', true);
+                  },
+      complete: function (data) {
+                  button.removeAttribute('disabled');
+                },
+      statusCode: {
+        200:  function (data = {name: 'Админ', avatarPath: 'style/image/1.png'}) {
+                var form = document.getElementsByClassName('control-menu')[0];
+                form.innerHTML = '<form><div class="autorisation">'+
+                  '<img src="'+data.avatarPath +'" alt="Avatar">'+
+                  '<label>Здравствуйте, '+ data.name +'</label>'+
+                  '<p class=""><a href="#">Выйти</a></p>'+
+                '</div></form>';
+              },
+        400:  function () {
+                alert('Время соединения с сервером истекло.');
+              },
+        401:  function () {
+                alert('Такой пользователь не найден.');
+              },
+        404:  function () {
+                alert('Сервер временно не доступен.');
+              },
       }
     })
-    .done(function() {
-      alert("success");
-    })
-    .fail(function(data) {
-      alert("error: " + data);
-    })
-    .always(function() {
-      button.removeAttribute('disabled');
-    });
+    // .done(function() {
+    //   alert("success");
+    // })
+    // .fail(function(data) {
+    //   alert("error: " + data);
+    // })
+    // .always(function() {
+    // });
   }
 
   return {
@@ -96,10 +118,12 @@ document.addEventListener('DOMContentLoaded', function(){
   document.sign_in.onsubmit = sign_in.get;
 
   var rec_pass = document.getElementById('rec_pass');
-  rec_pass.onclick = function () {
-    var shadow = document.getElementsByClassName('shadow')[0];
-    shadow.classList.remove('devisible');
-  }
+
+  if (rec_pass != null)
+    rec_pass.onclick = function () {
+      var shadow = document.getElementsByClassName('shadow')[0];
+      shadow.classList.remove('devisible');
+    }
 
   var close_modal = document.getElementsByClassName('icon-close')[0];
   close_modal.onclick = function () {

@@ -93,19 +93,25 @@ body {
 	height: 50px;
 	border: none;
 	background-color: #0189c3;
-	box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.43);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.43);
 	border-radius: 5px;
 	color: white;
-	font-weight: bold;
 	cursor: pointer;
+	font: 16px Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .main_block button:hover {
-	background-color: #0189e3;
+	background-color: #0189f9;
+	border: 2px solid #0189a1;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.78);
+	font-weight: bold;
+	color: #eee;
 } 
 
 .main_block button:disabled {
 	background-color: #0189a3;
+	border: 2px solid #018891;
+	color: #aaa;
 } 
 
 .reg_block form input:focus { outline: none; }

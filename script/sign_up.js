@@ -161,10 +161,19 @@
 
 $(document).ready(function() {
 
-	var button_su = $('#sign_up');
+	
 
-	var kup = function (id, type, mess) {
-		var elem = $('#' + id).val();
+	var user = {
+		user_name: '',
+		pass: '',
+		mail: '',
+		phone: ''
+	}
+
+	var button_su = $('form button');
+
+	var desel = function (id, type, mess) {
+		var elem = $('#' + id).val().trim();
 
 		if (valid(elem, type)) {
 			message(id, '');
@@ -175,47 +184,80 @@ $(document).ready(function() {
 		}
 	}
 	
-	$('#login').on('input', function() {
-		kup(this.id, 'text', 'Имя должно быть от 4 до 12 символов.');
+	$('#login').on('input blur', function() {
+		desel(this.id, 'text', 'Имя должно быть от 4 до 12 символов.');
 	});
 
-	$('#email').on('input', function() {
-		kup(this.id, 'email', 'Введенный email должен иметь формат ____@__.__');
+	$('#email').on('input blur', function() {
+		desel(this.id, 'email', 'Введенный email должен иметь формат ____@__.__');
 	});
 
 	$('#tel').focusin(function() {
-		$(this).mask("+38 (999) 999-99-99",
+		$(this).mask("+38(999)999-99-99",
 			{
 				"clearIncomplete":true,
-				completed: function(){
-					// var temp = $(this).val();
-					// var tel = "";
-					// var leng = temp.length;
-
-					// for (var i = 0; i < leng; ++i) {
-					// 	if($.isNumeric(temp[i])){
-					// 		tel += temp[i];
-					// 	}
-					// }
-
-					// if(tel.length == 12) {
-					// 	user.phone = tel;
-					// }else{
-					// 	user.phone = '';
-					// 	return false;
-					// }
-				}
 			});
 	});
 
-	$('#password').on('input', function() {
-		kup(this.id, 'text', 'Пароль должен быть от 4 до 12 символов.');
+	$('#password').on('input blur', function() {
+		desel(this.id, 'text', 'Пароль должен быть от 4 до 12 символов.');
 	});
 
-	$('#confirm_password').on('input', function() {
-		kup(this.id, 'c_pass', 'Пароли не совпадают.');		
+	$('#confirm_password').on('input blur', function() {
+		desel(this.id, 'c_pass', 'Пароли не совпадают.');		
 	});
 
+	setInterval(function () {
+		$('#login').triggerHandler('input');
+		$('#email').triggerHandler('input');
+		$('#password').triggerHandler('input');
+		$('#confirm_password').triggerHandler('input');
+	}, 300);
+
+	$('form button').on('click', function() {
+		user.user_name = 	$('#login').val().trim();
+		user.pass = 			$('#password').val();
+		user.mail = 			$('#email').val().trim();
+		user.phone = 			$('#tel').val().trim()
+	});
+
+	$('form').on('submit', function (event) {
+		event.preventDefault();
+
+		
+			// $.ajax({
+			// 	async: true,
+			// 	url: 'https://eventssion.com/api/mobile/1/native_register',
+			// 	type: 'POST',
+			// 	dataType: 'JSON',
+			// 	data: {
+			// 		user_name: user.user_name,
+			// 		mail: user.mail,
+			// 		pass: user.pass,
+			// 		phone: user.phone,
+			// 	}, 
+			// 	crossDomain: true,
+			// 	beforeSend: function () {
+			// 		$('#sign_up').attr('disabled', true);
+					
+			// 	}
+			// }).done(function(status) {
+			// 	alert('Succss: ' + status.status);
+			// 		$('#sign_up').attr('disabled', false);
+			// })
+			// .fail(function(status) {
+			// 	alert('Error: '+status.status);
+			// 		$('#sign_up').attr('disabled', false);
+			// });
+			// 
+			
+			var params = $.param(user);
+
+			var xhr = new XMLHttpRequest();
+			// var xhr.open('POST', '', true);
+		
+
+	});
 
 });
 
@@ -237,17 +279,23 @@ var valid = function (data, type) {
 		case 'c_pass':
 			var pass = $('#password').val();
 
-			if (pass == data) {
+			if (pass == data && data != '') {
 				return true;
-			}else return false;
-			
+			}else{
+			 return false;
+			}
 			break;
 	}
-
-
-	
 }
 
 var message = function (label, message) {
 	$('label[for='+label+']').text(message).addClass('a-message');
+}
+
+var i_lazy_ass = function () {
+	$('#login').val('Redgrejv');
+	$('#password').val('Zhurid1995');
+	$('#confirm_password').val('Zhurid1995');
+	$('#email').val('redgrejv10@gmail.com');
+	$('#tel').val('+38(096)231-29-45');
 }

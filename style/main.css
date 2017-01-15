@@ -86,6 +86,7 @@ a, a:hover { text-decoration: none; }
     margin-right: 25px;
     color: lightgray;
     background: transparent;
+    float: left;
 }
 
 .sign-in button {
@@ -101,7 +102,9 @@ a, a:hover { text-decoration: none; }
 }
 
 .sign-in button:hover {
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.93);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.83);
+    background-color: rgb(0, 150, 166);
+    color: white;
     cursor: pointer;
 }
 
@@ -111,10 +114,10 @@ a, a:hover { text-decoration: none; }
     float: left;
 }
 
-
 .control-menu h3 {
     float: right;
     color: white;
+    margin-top: 8px;
 }
 
 .control-menu h3:hover {
@@ -721,4 +724,49 @@ a, a:hover { text-decoration: none; }
     border-radius: 4px;
     padding: 11px 30px;
     margin-left: 55px;
+}
+
+.modal button:hover {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(0, 158, 195);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.78);
+}
+
+
+
+
+
+
+
+
+.autorisation {
+    color: white;
+    font: 16px Arial, sans-serif;
+    margin-top: 12px;
+    position: relative;
+    display: inline-block;
+    left: 200px;
+}
+
+.autorisation img {
+    max-width: 75px;
+    max-height: 75px;
+    float: left;
+    margin-right: 25px;
+}
+
+.autorisation label {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.autorisation a {
+    color: white;
+}
+
+.autorisation a:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
