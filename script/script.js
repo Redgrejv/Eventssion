@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var XHR = ('onload' in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
 var sign_in = function () {
@@ -166,7 +167,3 @@ window.onload = function() {
     hover: 'style/image/hover_time_manager.png',
     active: 'style/image/active_hover_time_manager.png'
   });
-
-  
-
-};
