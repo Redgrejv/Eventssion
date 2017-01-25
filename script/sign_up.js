@@ -224,41 +224,32 @@ $(document).ready(function() {
 	$('form').on('submit', function (event) {
 		event.preventDefault();
 
-		
-			// $.ajax({
-			// 	async: true,
-			// 	url: 'https://eventssion.com/api/mobile/1/native_register',
-			// 	type: 'POST',
-			// 	dataType: 'JSON',
-			// 	data: {
-			// 		user_name: user.user_name,
-			// 		mail: user.mail,
-			// 		pass: user.pass,
-			// 		phone: user.phone,
-			// 	}, 
-			// 	crossDomain: true,
-			// 	beforeSend: function () {
-			// 		$('#sign_up').attr('disabled', true);
-					
-			// 	}
-			// }).done(function(status) {
-			// 	alert('Succss: ' + status.status);
-			// 		$('#sign_up').attr('disabled', false);
-			// })
-			// .fail(function(status) {
-			// 	alert('Error: '+status.status);
-			// 		$('#sign_up').attr('disabled', false);
-			// });
-			// 
+		var XHR = ('onload' in new XMLHttpRequest()) ? new XMLHttpRequest : new XDomainRequest;
 			
-			var params = $.param(user);
+			
+		var params = $.param(user);
 
-			var xhr = new XMLHttpRequest();
-			// var xhr.open('POST', '', true);
-		
+		var xhr = XHR;
+		xhr.open('POST', 'https://eventssion.com/api/mobile/1/native_register', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) {
+
+				if (xhr.status != 200) {
+
+					var alert = $('.alert');
+					var coord = {};
+					coord.top = $('form button').offset().top - alert.height()/2;
+					coord.left = $('form').offset().left;
+					alert_message.attention(xhr.status, {top: coord.top, left: coord.left, type: 'px'});
+				}
+
+			}
+		}
+
+		xhr.send(params);
 
 	});
-
 });
 
 

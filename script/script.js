@@ -1,5 +1,3 @@
-var XHR = ('onload' in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-
 var sign_in = function () {
 
   function valid_data(data) {
@@ -15,13 +13,32 @@ var sign_in = function () {
 
     if (!valid_data(login)||
         !valid_data(pass)) {
-      
-      return false;
+
+      if (!valid_data(login)) {
+        alert_message.attention('Логин должен быть от 4 до 12 символов');
+        return false;
+      }
+
+      if (!valid_data(pass)) {
+        alert_message.attention('Пароль должен быть от 4 до 12 символов');
+        return false;
+      }
     }
 
-    var button = document.sign_in[2];
+    var button = document.sign_in.children[2];
 
-    
+    function attention(message) {
+
+    document.getElementsByClassName('header')[0].innerHTML += "<div class='alert'>"+
+        "<p class='message'>"+message+"</p></div>";
+
+    var del = document.getElementsByClassName('alert')[0];
+
+    setTimeout(function () {
+      del.remove();
+    }, 1000);
+
+  }
 
     $.ajax({
       async: true,
@@ -36,37 +53,35 @@ var sign_in = function () {
       beforeSend: function (jqXHR, option) {
                     button.setAttribute('disabled', true);
                   },
-      complete: function (data) {
-                  button.removeAttribute('disabled');
-                },
-      statusCode: {
-        200:  function (data = {name: 'Админ', avatarPath: 'style/image/1.png'}) {
+    })
+    .always(function() {
+      button.removeAttribute('disabled');
+    })
+    .done(function (status, data = {name: 'Админ', avatarPath: 'style/image/1.png'}) {
                 var form = document.getElementsByClassName('control-menu')[0];
                 form.innerHTML = '<form><div class="autorisation">'+
                   '<img src="'+data.avatarPath +'" alt="Avatar">'+
                   '<label>Здравствуйте, '+ data.name +'</label>'+
                   '<p class=""><a href="#">Выйти</a></p>'+
                 '</div></form>';
-              },
-        400:  function () {
-                alert('Время соединения с сервером истекло.');
-              },
-        401:  function () {
-                alert('Такой пользователь не найден.');
-              },
-        404:  function () {
-                alert('Сервер временно не доступен.');
-              },
+              })
+    .fail(function(status) {
+      switch(status.status){
+        case 400:  
+                alert_message.attention('Время соединения с сервером истекло.');
+              break;
+
+        case 401:  
+                alert_message.attention('Такой пользователь не найден.');
+              break;
+
+        case 404: 
+                alert_message.attention('Сервер временно не доступен.');
+
+              break;
       }
-    })
-    // .done(function() {
-    //   alert("success");
-    // })
-    // .fail(function(data) {
-    //   alert("error: " + data);
-    // })
-    // .always(function() {
-    // });
+    });;
+
   }
 
   return {
