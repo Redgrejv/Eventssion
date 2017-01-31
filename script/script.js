@@ -68,16 +68,15 @@ var sign_in = function () {
     .fail(function(status) {
       switch(status.status){
         case 400:  
-                alert_message.attention('Время соединения с сервером истекло.');
+                alert_message.attention('Ошибка '+status.status+'. Время соединения с сервером истекло.');
               break;
 
         case 401:  
-                alert_message.attention('Такой пользователь не найден.');
+                alert_message.attention('Ошибка '+status.status+'. Такой пользователь не найден.');
               break;
 
         case 404: 
-                alert_message.attention('Сервер временно не доступен.');
-
+                alert_message.attention('Ошибка '+status.status+'. Сервер временно не доступен.');
               break;
       }
     });;

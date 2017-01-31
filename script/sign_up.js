@@ -218,18 +218,27 @@ $(document).ready(function() {
 		user.user_name = 	$('#login').val().trim();
 		user.pass = 			$('#password').val();
 		user.mail = 			$('#email').val().trim();
-		user.phone = 			$('#tel').val().trim()
+
+		var tel = $('#tel').val();
+		for (var i = 0; i < tel.length; ++i) {
+			if ($.isNumeric(tel[i])) {
+				user.phone+=tel[i];
+			}
+		}
+
 	});
 
 	$('form').on('submit', function (event) {
 		event.preventDefault();
 
-		var XHR = ('onload' in new XMLHttpRequest()) ? new XMLHttpRequest : new XDomainRequest;
+		// var XHR = ('onload' in new XMLHttpRequest()) ? new XMLHttpRequest : new XDomainRequest;
+
+
 			
 			
 		var params = $.param(user);
 
-		var xhr = XHR;
+		var xhr = getXMLHttp();
 		xhr.open('POST', 'https://eventssion.com/api/mobile/1/native_register', true);
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 		xhr.onreadystatechange = function () {
@@ -242,6 +251,8 @@ $(document).ready(function() {
 					coord.top = $('form button').offset().top - alert.height()/2;
 					coord.left = $('form').offset().left;
 					alert_message.attention(xhr.status, {top: coord.top, left: coord.left, type: 'px'});
+				}else{
+					alert('Success');
 				}
 
 			}
@@ -290,3 +301,26 @@ var i_lazy_ass = function () {
 	$('#email').val('redgrejv10@gmail.com');
 	$('#tel').val('+38(096)231-29-45');
 }
+
+
+
+
+
+		function getXMLHttp() {
+			var xhr;
+			try{
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(E){
+					xhr = false;
+				}
+			}
+
+			if (!xhr && typeof XMLHttpRequest != 'undefined') {
+				xhr = new XMLHttpRequest();
+			}
+
+			return xhr;
+		}
