@@ -77,7 +77,6 @@ var sign_in = function () {
 
         case 404: 
                 alert_message.attention('Сервер временно не доступен.');
-
               break;
       }
     });;
