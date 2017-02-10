@@ -83,16 +83,16 @@ a, a:hover { text-decoration: none; }
     font: 16px 'Arial', Arial, sans-serif;
     padding-bottom: 12px; 
     border-bottom: 1px groove rgba(255, 255, 255, 0.541);
-    margin-right: 25px;
     color: lightgray;
     background: transparent;
+    margin-right: 17px;
     float: left;
 }
 
 .sign-in button {
     border: none;
     background-color: rgb(0, 150, 136);
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.43);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.43);
     width: 165px;
     height: 36px;
     z-index: 84;
@@ -102,7 +102,7 @@ a, a:hover { text-decoration: none; }
 }
 
 .sign-in button:hover {
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.83);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.83);
     background-color: rgb(0, 150, 166);
     color: white;
     cursor: pointer;
@@ -131,7 +131,7 @@ a, a:hover { text-decoration: none; }
 }
 
 .language li{
-    font-size: 14px 'Arial', arial, sans-serif;
+    font: 14px arial, sans-serif;
     float: left;
     color: white;
     padding: 5px 0;
@@ -490,7 +490,7 @@ a, a:hover { text-decoration: none; }
     border-color: #7f5757;
     border-radius: 10px;
     background-color: #856060;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.004);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.004);
     width: 39px;
     height: 38px;
 }
@@ -529,7 +529,7 @@ a, a:hover { text-decoration: none; }
     border-color: rgb(34, 154, 255);
     border-radius: 10px;
     background-color: #2a8eff;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.004);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.004);
 }
 
 .ground-social ul li:hover {
@@ -538,12 +538,12 @@ a, a:hover { text-decoration: none; }
     border-color: rgb(24, 197, 240);
     border-radius: 10px;
     background-color: #00bbe3;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.004);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.004);
 }
 
 .gm-page {
     background-color: rgb(254, 255, 238);
-    box-shadow: 0px 2px 6px 0px rgba(0, 0, 2, 0.34);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 2, 0.34);
     padding: 35px;
     border-radius: 4px;
     width: 395px;
@@ -611,13 +611,14 @@ a, a:hover { text-decoration: none; }
 .gm-page textarea, input {
     border: none;
     background: transparent;
-    font: 16px #000 Arial, sans-serif;
+    color: #000;
+    font: 16px Arial, sans-serif;
     padding-bottom: 5px;
 }
 
 .gm-page button {
     background-color: rgb(49, 172, 95);
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     color: white;
     padding: 15px 40px 11px 40px;
     border: none;
@@ -650,7 +651,6 @@ a, a:hover { text-decoration: none; }
 .shadow {
     position: absolute;
     width: 1920px;
-    height: ;
     margin: 0;
     top: 0;
     left: 0;
@@ -668,7 +668,7 @@ a, a:hover { text-decoration: none; }
     width: 380px;
     left: 770px;
     padding: 30px 30px 25px 30px;
-    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 }
 
 .modal p:first-child {
@@ -695,9 +695,8 @@ a, a:hover { text-decoration: none; }
     width: 143px;
     height: 143px;
     border-radius: 50%;
-    background: url(image/cry_recover.png) no-repeat;
-    background-color: rgb(243, 243, 243);
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.13);
+    background: rgb(243, 243, 243) url(image/cry_recover.png) no-repeat;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
     margin: 50px auto;
 }
 
@@ -715,7 +714,7 @@ a, a:hover { text-decoration: none; }
     border: none;
     width: 200px;
     color: #fff;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.38);
     background-color: rgb(0, 138, 195);
     border-radius: 4px;
     padding: 11px 30px;
@@ -726,7 +725,7 @@ a, a:hover { text-decoration: none; }
     cursor: pointer;
     font-weight: bold;
     background-color: rgb(0, 158, 195);
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.78);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.78);
 }
 
 .autorisation {
